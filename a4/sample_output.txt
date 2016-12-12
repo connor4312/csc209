@@ -1,0 +1,140 @@
+Welcome to FriendMe! (Local version)
+Please type a command:
+> add_user david
+> profile david
+Name: david
+
+------------------------------------------
+Friends:
+------------------------------------------
+Posts:
+------------------------------------------
+> add_user karen
+> add_user michelle
+> add_user bogdan
+> list_users
+User List
+	david
+	karen
+	michelle
+	bogdan
+> make_friends david bogdan
+> profile david
+Name: david
+
+------------------------------------------
+Friends:
+bogdan
+------------------------------------------
+Posts:
+------------------------------------------
+> profile bogdan
+Name: bogdan
+
+------------------------------------------
+Friends:
+david
+------------------------------------------
+Posts:
+------------------------------------------
+> post bogdan david david is soooo cool :)
+> profile david
+Name: david
+
+------------------------------------------
+Friends:
+bogdan
+------------------------------------------
+Posts:
+From: bogdan
+Date: Sun Jan 31 10:56:24 2016
+
+david is soooo cool :)
+------------------------------------------
+> make_friends michelle david
+> post michelle david Isn't 209 fun?
+> update_pic david alien.ascii
+> profile david
+    
+      .--.   |V|
+     /    \ _| /
+     q .. p \ /
+      \--/  //
+jgs  __||__//
+    /.    _/
+   // \  /
+  //   ||
+  \\  /  \
+   )\|    |
+  / || || |
+  |/\| || |
+     | || |
+     \ || /
+   __/ || \__
+  \____/\____/
+
+Name: david
+
+------------------------------------------
+Friends:
+bogdan
+michelle
+------------------------------------------
+Posts:
+From: michelle
+Date: Sun Jan 31 10:56:24 2016
+
+Isn't 209 fun?
+
+===
+
+From: bogdan
+Date: Sun Jan 31 10:56:24 2016
+
+david is soooo cool :)
+------------------------------------------
+> delete_user michelle
+> list_users
+User List
+	david
+	karen
+	bogdan
+> profile david
+    
+      .--.   |V|
+     /    \ _| /
+     q .. p \ /
+      \--/  //
+jgs  __||__//
+    /.    _/
+   // \  /
+  //   ||
+  \\  /  \
+   )\|    |
+  / || || |
+  |/\| || |
+     | || |
+     \ || /
+   __/ || \__
+  \____/\____/
+
+Name: david
+
+------------------------------------------
+Friends:
+bogdan
+------------------------------------------
+Posts:
+From: michelle
+Date: Sun Jan 31 10:56:24 2016
+
+Isn't 209 fun?
+
+===
+
+From: bogdan
+Date: Sun Jan 31 10:56:24 2016
+
+david is soooo cool :)
+------------------------------------------
+> quit

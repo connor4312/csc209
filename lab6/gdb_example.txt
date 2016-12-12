@@ -1,0 +1,208 @@
+Script started on Thu Feb 25 19:51:46 2016
+wolf:~/csc209-lab6$ gdb overflow
+GNU gdb (Ubuntu/Linaro 7.4-2012.04-0ubuntu2.1) 7.4-2012.04
+Copyright (C) 2012 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+For bug reporting instructions, please see:
+<http://bugs.launchpad.net/gdb-linaro/>...
+Reading symbols from /h/u15/c4/00/c4peetco/csc209-lab6/overflow...done.
+(gdb) break main
+Breakpoint 1 at 0x4005ac: file overflow.c, line 7.
+(gdb) run
+Starting program: /h/u15/c4/00/c4peetco/csc209-lab6/overflow
+warning: no loadable sections found in added symbol-file system-supplied DSO at 0x7ffff7ffa000
+
+Breakpoint 1, main () at overflow.c:7
+7           int index = 0;
+(gdb) next
+9           int k = 10;
+(gdb) next
+10          int a[SIZE] = {0, 0, 0, 0};
+(gdb) next
+11          int j = 10;
+(gdb) next
+13          printf("Address of the variables:\n");
+(gdb) display k
+1: k = 10
+(gdb) display i
+2: i = -5360
+(gdb) next
+Address of the variables:
+14          printf("%lx -> &j\n", (unsigned long)&j);
+2: i = -5360
+1: k = 10
+(gdb) next
+7fffffffea28 -> &j
+15          for (index = 0; index < SIZE; index++) {
+2: i = -5360
+1: k = 10
+(gdb) next
+16              printf("%lx -> &a[%d]\n", (unsigned long) &a[index], index);
+2: i = -5360
+1: k = 10
+(gdb) next
+7fffffffea10 -> &a[0]
+15          for (index = 0; index < SIZE; index++) {
+2: i = -5360
+1: k = 10
+(gdb) next
+16              printf("%lx -> &a[%d]\n", (unsigned long) &a[index], index);
+2: i = -5360
+1: k = 10
+(gdb) next
+7fffffffea14 -> &a[1]
+15          for (index = 0; index < SIZE; index++) {
+2: i = -5360
+1: k = 10
+(gdb) next
+16              printf("%lx -> &a[%d]\n", (unsigned long) &a[index], index);
+2: i = -5360
+1: k = 10
+(gdb) next
+7fffffffea18 -> &a[2]
+15          for (index = 0; index < SIZE; index++) {
+2: i = -5360
+1: k = 10
+(gdb) next
+16              printf("%lx -> &a[%d]\n", (unsigned long) &a[index], index);
+2: i = -5360
+1: k = 10
+(gdb) next
+7fffffffea1c -> &a[3]
+15          for (index = 0; index < SIZE; index++) {
+2: i = -5360
+1: k = 10
+(gdb) next
+19          printf("%lx -> &k\n", (unsigned long)&k);
+2: i = -5360
+1: k = 10
+(gdb) next
+7fffffffea24 -> &k
+20          printf("%lx -> &i\n", (unsigned long)&i);
+2: i = -5360
+1: k = 10
+(gdb) next
+7fffffffea20 -> &i
+21          printf("\n");
+2: i = -5360
+1: k = 10
+(gdb) next
+
+24          printf("Initial values: ");
+2: i = -5360
+1: k = 10
+(gdb) next
+25          printf("i = %d, j = %d, k = %d\n", i, j, k);
+2: i = -5360
+1: k = 10
+(gdb) next
+Initial values: i = -5360, j = 10, k = 10
+26          printf("a = {%d, %d, %d, %d}\n", a[0], a[1], a[2], a[3]);
+2: i = -5360
+1: k = 10
+(gdb) next
+a = {0, 0, 0, 0}
+27          printf("\n");
+2: i = -5360
+1: k = 10
+(gdb) next
+
+30          for (i = 0; i < OVERFLOW; i++) {
+2: i = -5360
+1: k = 10
+(gdb) next
+31              a[i] = i * 10;
+2: i = 0
+1: k = 10
+(gdb) next
+32              printf("i = %d, j = %d, k = %d\t\t", i, j, k);
+2: i = 0
+1: k = 10
+(gdb) next
+33              printf("a = {%d, %d, %d, %d}\n", a[0], a[1], a[2], a[3]);
+2: i = 0
+1: k = 10
+(gdb) next
+i = 0, j = 10, k = 10           a = {0, 0, 0, 0}
+30          for (i = 0; i < OVERFLOW; i++) {
+2: i = 0
+1: k = 10
+(gdb) next
+31              a[i] = i * 10;
+2: i = 1
+1: k = 10
+(gdb) next
+32              printf("i = %d, j = %d, k = %d\t\t", i, j, k);
+2: i = 1
+1: k = 10
+(gdb) next
+33              printf("a = {%d, %d, %d, %d}\n", a[0], a[1], a[2], a[3]);
+2: i = 1
+1: k = 10
+(gdb) next
+i = 1, j = 10, k = 10           a = {0, 10, 0, 0}
+30          for (i = 0; i < OVERFLOW; i++) {
+2: i = 1
+1: k = 10
+(gdb) next
+31              a[i] = i * 10;
+2: i = 2
+1: k = 10
+(gdb) next
+32              printf("i = %d, j = %d, k = %d\t\t", i, j, k);
+2: i = 2
+1: k = 10
+(gdb) next
+33              printf("a = {%d, %d, %d, %d}\n", a[0], a[1], a[2], a[3]);
+2: i = 2
+1: k = 10
+(gdb) next
+i = 2, j = 10, k = 10           a = {0, 10, 20, 0}
+30          for (i = 0; i < OVERFLOW; i++) {
+2: i = 2
+1: k = 10
+(gdb) next
+31              a[i] = i * 10;
+2: i = 3
+1: k = 10
+(gdb) next
+32              printf("i = %d, j = %d, k = %d\t\t", i, j, k);
+2: i = 3
+1: k = 10
+(gdb) next
+33              printf("a = {%d, %d, %d, %d}\n", a[0], a[1], a[2], a[3]);
+2: i = 3
+1: k = 10
+(gdb) next
+i = 3, j = 10, k = 10           a = {0, 10, 20, 30}
+30          for (i = 0; i < OVERFLOW; i++) {
+2: i = 3
+1: k = 10
+(gdb) next
+31              a[i] = i * 10;
+2: i = 4
+1: k = 10
+(gdb) next
+32              printf("i = %d, j = %d, k = %d\t\t", i, j, k);
+2: i = 40
+1: k = 10
+(gdb) print &i
+$1 = (int *) 0x7fffffffea20
+(gdb) print a[4]
+$2 = 40
+(gdb) print &a[4]
+$3 = (int *) 0x7fffffffea20
+(gdb) quit
+A debugging session is active.
+
+        Inferior 1 [process 39441] will be killed.
+
+Quit anyway? (y or n) y
+wolf:~/csc209-lab6$ exit
+exit
+
+Script done on Thu Feb 25 19:54:07 2016

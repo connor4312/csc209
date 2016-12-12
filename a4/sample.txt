@@ -1,0 +1,20 @@
+add_user david
+profile david
+add_user karen
+add_user michelle
+add_user bogdan
+list_users
+make_friends david bogdan
+profile david
+profile bogdan
+post bogdan david david is soooo cool :)
+profile david
+make_friends michelle david
+post michelle david Isn't 209 fun?
+update_pic david alien.ascii
+profile david
+delete_user michelle
+list_users
+profile david
+quit
+
